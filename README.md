@@ -51,65 +51,12 @@ yarn/npm install
  5.Open your browser and visit http://localhost:3000 to view the app.
 
 
- 
-Certainly! Below is an example of a README.md file for the provided React component that calculates and displays statistics for a Wine Data Set:
-
-markdown
-Copy code
 # Wine Statistics App
+
+[![Wine Statistics App Screenshot](../task/screenshots/wineDataSet.png)](../task/screenshots/wineDataSet.png)
 
 This React application calculates and displays class-wise statistics for the Wine Data Set, specifically focusing on properties like "Flavanoids" and a derived property "Gamma."
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Mock Data](#mock-data)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Overview
-
-The Wine Statistics App is a React application that utilizes mock data representing the Wine Data Set. It calculates and presents class-wise statistics for "Flavanoids" and "Gamma," including mean, median, and mode.
-
-The project includes utility functions for statistical calculations and a React component (`WineStatistics.js`) responsible for rendering the statistics tables.
-
-## Mock Data
-
-The application uses a mock dataset of wine-related properties for demonstration purposes. You can customize or replace this data in the `WineStatistics.js` file to analyze your own dataset.
-
-```jsx
-const wineData = [
-  // Mock data entries representing wine properties (Alcohol, Flavanoids, Ash, Hue, Magnesium, Class)
-  { Alcohol: 12.8, Flavanoids: 2.45, Ash: 2.36, Hue: 1.15, Magnesium: 127, Class: 1 },
-  { Alcohol: 13.3, Flavanoids: 2.76, Ash: 2.34, Hue: 1.25, Magnesium: 118, Class: 1 },
-  // Add more data points as needed
-];
-Getting Started
-To run the Wine Statistics App locally, follow these steps:
-
-Clone this repository to your local machine:
-
-bash
-Copy code
-git clone https://github.com/your-username/wine-statistics-app.git
-Navigate to the project directory:
-
-bash
-Copy code
-cd wine-statistics-app
-Install dependencies:
-
-bash
-Copy code
-npm install
-Start the development server:
-
-bash
-Copy code
-npm start
-Open your browser and visit http://localhost:3000 to view the app.
 
 Usage
 The Wine Statistics App will display class-wise statistics for "Flavanoids" and "Gamma" in a tabular format. The statistics include mean, median, and mode for each class.
