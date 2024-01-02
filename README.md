@@ -2,6 +2,11 @@
 
 This React application calculates and displays class-wise statistics for the Wine Data Set, specifically focusing on properties like "Flavanoids" and a derived property "Gamma."
 
+# Output
+![FlavanoidsStats](https://github.com/shaikhwaqar-18/task/assets/108542940/c874c83d-8b1b-406b-a889-5adc7aa034ba)
+![GammaStats](https://github.com/shaikhwaqar-18/task/assets/108542940/ce706e66-61a8-4e99-8b65-f2abba2afe44)
+
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -49,11 +54,6 @@ yarn/npm install
  yarn start
 
  5.Open your browser and visit http://localhost:3000 to view the app.
-
-
-# Wine Statistics App
-
-[![Wine Statistics App Screenshot](task\screenshots\wineDataSet.png)](../task/screenshots/wineDataSet.png)
 
 This React application calculates and displays class-wise statistics for the Wine Data Set, specifically focusing on properties like "Flavanoids" and a derived property "Gamma."
 
