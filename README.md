@@ -3,8 +3,9 @@
 This React application calculates and displays class-wise statistics for the Wine Data Set, specifically focusing on properties like "Flavanoids" and a derived property "Gamma."
 
 # Output
-![FlavanoidsStats](https://github.com/shaikhwaqar-18/task/assets/108542940/c874c83d-8b1b-406b-a889-5adc7aa034ba)
-![GammaStats](https://github.com/shaikhwaqar-18/task/assets/108542940/ce706e66-61a8-4e99-8b65-f2abba2afe44)
+
+![FlavanoidsStats](https://github.com/shaikhwaqar-18/task/assets/108542940/2657525f-2c44-4093-99ba-8162e76d5e69)
+![GammaStats](https://github.com/shaikhwaqar-18/task/assets/108542940/b7a7f7e0-2874-495f-9c19-b3f22d68c53a)
 
 
 ## Table of Contents
@@ -28,7 +29,7 @@ The application uses a mock dataset of wine-related properties for demonstration
 
 ```jsx
 const wineData = [
-    { Alcohol: 12.8, Flavanoids: 2.45, Ash: 2.36, Hue: 1.15, Magnesium: 127, Class: 1 },
+    { Alcohol: 12.8, Flavanoids: 3.45, Ash: 2.36, Hue: 1.15, Magnesium: 127, Class: 1 },
     { Alcohol: 13.3, Flavanoids: 2.76, Ash: 2.34, Hue: 1.25, Magnesium: 118, Class: 1 },
     { Alcohol: 13.6, Flavanoids: 3.24, Ash: 2.35, Hue: 1.35, Magnesium: 112, Class: 4 },
     { Alcohol: 14.1, Flavanoids: 2.87, Ash: 2.59, Hue: 1.45, Magnesium: 115, Class: 2 },
