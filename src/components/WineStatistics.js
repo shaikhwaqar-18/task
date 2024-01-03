@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 //Mock data for the wineData set
 const wineData = [
-    { Alcohol: 12.8, Flavanoids: 2.45, Ash: 2.36, Hue: 1.15, Magnesium: 127, Class: 1 },
+    { Alcohol: 12.8, Flavanoids: 3.45, Ash: 2.36, Hue: 1.15, Magnesium: 127, Class: 1 },
     { Alcohol: 13.3, Flavanoids: 2.76, Ash: 2.34, Hue: 1.25, Magnesium: 118, Class: 1 },
     { Alcohol: 13.6, Flavanoids: 3.24, Ash: 2.35, Hue: 1.35, Magnesium: 112, Class: 4 },
     { Alcohol: 14.1, Flavanoids: 2.87, Ash: 2.59, Hue: 1.45, Magnesium: 115, Class: 2 },
@@ -36,34 +36,63 @@ const calculateClassWiseStatistics = (data, property) => {
 
 // Function to calculate the mean of an array of values
 const calculateMean = (values) => {
-  const sum = values.reduce((acc, val) => acc + val, 0);
-  return sum / values.length;
+  if (values.length === 0) {
+    return 0;
+  }
+
+  const sum = values.reduce((acc, val) => {
+    return Array.isArray(val) ? acc : acc + val;
+  }, 0);
+
+  const nonArrayValuesCount = values.filter((val) => !Array.isArray(val)).length;
+
+  return nonArrayValuesCount === 0 ? 0 : sum / nonArrayValuesCount;
 };
+
 
 // Function to calculate the median of an array of values
 const calculateMedian = (values) => {
-  const sortedValues = values.slice().sort((a, b) => a - b);
-  const middle = Math.floor(sortedValues.length / 2);
+  const sortedValues = values
+    .filter((val) => typeof val === 'number' && !isNaN(val))
+    .sort((a, b) => a - b);
 
-  if (sortedValues.length % 2 === 0) {
+  const length = sortedValues.length;
+  const middle = Math.floor(length / 2);
+
+  if (length === 0) {
+    return 0;
+  }
+
+  if (length % 2 === 0) {
     return (sortedValues[middle - 1] + sortedValues[middle]) / 2;
   } else {
     return sortedValues[middle];
   }
 };
 
-// Function to calculate the mode of an array of values
 
+// Function to calculate the mode of an array of values
 const calculateMode = (values) => {
   const countMap = values.reduce((acc, val) => {
-    acc[val] = (acc[val] || 0) + 1;
+    const key = String(val);
+    acc[key] = (acc[key] || 0) + 1;
     return acc;
   }, {});
 
-  // Find the values with the maximum count (mode)
   const maxCount = Math.max(...Object.values(countMap));
-  return Object.keys(countMap).filter((key) => countMap[key] === maxCount).map(Number);
+
+  if (maxCount === 1) {
+    return null; // No clear mode
+  }
+
+  const modeValues = Object.keys(countMap)
+    .filter((key) => countMap[key] === maxCount)
+    .map((key) => (key === 'NaN' ? NaN : parseFloat(key)));
+
+  return modeValues;
 };
+
+
 
 // Function to calculate a new property "Gamma" for each data point
 const calculateGamma = (data) => {
@@ -124,8 +153,13 @@ const renderStatisticsTable = (stats) => {
             {classes.map((className) => (
               <td key={`${measure}-${className}`}>
               {measure === 'Mode'
-              ? stats[className][measure].join(', ')
-              : stats[className][measure].toFixed(3)}
+  ? Array.isArray(stats[className][measure])
+    ? stats[className][measure].join(', ')
+    : stats[className][measure] === null
+    ? 'No clear mode'
+    : stats[className][measure]
+  : stats[className][measure].toFixed(3)}
+
               </td>
             ))}
           </tr>
